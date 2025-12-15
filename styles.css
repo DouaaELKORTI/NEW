@@ -1,0 +1,114 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    background: #0a0d14;
+    font-family: "Inter", sans-serif;
+    color: #f4f6fa;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    padding: 14px 22px;
+    background: rgba(20,25,39,0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(16px);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: #ff1744;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff1744;
+  }
+  
+  /* ALERT BAR */
+  .alert {
+    padding: 10px;
+    margin: 12px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .alert.safe {
+    background: rgba(46,204,113,0.18);
+    color: #2ecc71;
+  }
+  
+  .alert.critical {
+    background: rgba(231,76,60,0.28);
+    color: #e74c3c;
+  }
+  
+  /* MAIN LAYOUT */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* GRID CONTAINER */
+  .bags-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 25px;
+  }
+  
+  /* ONE BAG BLOCK */
+  .bag-block {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    transition: 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .bag-block:hover {
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.1);
+  }
+  
+  /* QR CANVAS */
+  .qr-box {
+    width: 180px;
+    height: 180px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    margin: 0 auto 10px auto;
+  }
+  
+  /* LABEL UNDER QR */
+  .bag-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 5px 12px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  /* DETAILS PANEL */
+  .details-panel {
+    background: rgba(18,22,34,0.85);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .details-content div {
+    margin-bottom: 8px;
+  }
+  

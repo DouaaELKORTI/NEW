@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QR Test</title>
+
+  <!-- QR Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+  <style>
+    body {
+      background: #0a0d14;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial;
+      flex-direction: column;
+    }
+
+    #qr-box {
+      width: 200px;
+      height: 200px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>QR Code Test</h2>
+  <canvas id="qr-box"></canvas>
+  <p id="status"></p>
+
+  <script>
+    // TEST DATA — QR should show this JSON
+    const qrData = {
+      bag_id: "TEST001",
+      blood_type: "A+",
+      health_index: 0.88,
+      timestamp: "2025-01-01 12:00:00"
+    };
+
+    // Create QR
+    try {
+      const qr = new QRious({
+        element: document.getElementById("qr-box"),
+        value: JSON.stringify(qrData),
+        size: 200,
+        background: "#ffffff",
+        foreground: "#000000"
+      });
+
+      document.getElementById("status").textContent = "QR generated successfully ✔️";
+    } catch (err) {
+      document.getElementById("status").textContent = "Error: " + err;
+    }
+  </script>
+
+</body>
+</html>

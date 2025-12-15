@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blood Bag Monitoring Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+
+<body>
+
+  <!-- NAV BAR -->
+  <header class="navbar">
+    <div class="logo"><span class="dot"></span> AI Blood Storage Monitor</div>
+    <div class="nav-info">
+      <span id="last-update">Last update: --</span>
+    </div>
+  </header>
+
+  <!-- ALERT BAR -->
+  <section id="alerts" class="alert safe">
+    ✅ No active anomalies detected.
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <main class="dashboard">
+
+    <!-- LEFT: GRID OF QR CODES -->
+    <section class="fridge">
+      <h2>Blood Bag Monitoring – Dynamic QR Codes</h2>
+
+      <div id="bags-container" class="bags-container">
+        <!-- 6 QR codes will be injected here via app.js -->
+      </div>
+    </section>
+
+    <!-- RIGHT: DETAILS PANEL -->
+    <aside class="details-panel">
+      <h2>Bag Details</h2>
+      <div id="details-content" class="details-content">
+        <p>Select a bag to view full information.</p>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
