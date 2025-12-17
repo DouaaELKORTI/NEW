@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# AI Blood Storage Monitor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack AI-powered system for real-time monitoring of blood bags during storage and transport.
+The system combines IoT-like sensor data with AutoGluon machine learning models and a modern React dashboard.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Real-time blood bag monitoring
+- AI-based Health Index prediction (AutoGluon)
+- FastAPI backend
+- React + Vite frontend
+- Dynamic QR codes per blood bag
+- Time-series visualization (health, temperature, humidity, vibration)
+- Medical-grade dark UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+AI-Blood-Storage-Monitor/
+├── backend/        # FastAPI backend + AI inference
+├── frontend/       # React (Vite) dashboard
+├── .gitignore
+├── README.md
+└── LICENSE
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend:
+- Python 3.10 or 3.11
+- pip
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend:
+- Node.js (LTS recommended)
+- npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Backend Setup (FastAPI + AutoGluon)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open a terminal in the project root and run:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+cd backend
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you are on Windows and AutoGluon fails, run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+pip install --upgrade --force-reinstall --no-cache-dir lightgbm
+pip install --upgrade --force-reinstall --no-cache-dir autogluon.tabular
 
-## Learn More
+Run the backend server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+uvicorn app:app --reload --host 127.0.0.1 --port 8000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Test backend in browser:
+http://127.0.0.1:8000/health
+http://127.0.0.1:8000/snapshot
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Frontend Setup (React + Vite)
 
-### Analyzing the Bundle Size
+Open a new terminal and run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cd frontend
+npm install
+npm run dev
 
-### Making a Progressive Web App
+Open the application in your browser:
+http://localhost:5173
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Make sure the backend is running before starting the frontend.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Notes
 
-### Deployment
+- venv/ and node_modules/ are ignored by Git
+- Backend runs on port 8000
+- Frontend runs on port 5173
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
+
+---
+
+## Author
+
+Douaa EL KORTI
