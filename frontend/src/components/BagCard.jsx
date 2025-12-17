@@ -9,18 +9,22 @@ function statusClass(status) {
 
 export default function BagCard({ bag, selected, onClick }) {
   const qrValue = useMemo(() => {
-    return JSON.stringify({
-      bag_id: bag.bag_id,
-      blood_type: bag.blood_type,
-      health_index: Number(bag.predicted_health_index).toFixed(4),
-      status: bag.status,
-      temp_mean: bag.temp_mean,
-      hum_mean: bag.hum_mean,
-      accel_rms: bag.accel_rms,
-      door_count: bag.door_count,
-      timestamp: bag.timestamp,
-    });
+    return (
+      `Bag ID: ${bag.bag_id}\n` +
+      `Blood Type: ${bag.blood_type}\n` +
+      `Health Index: ${Number(bag.predicted_health_index).toFixed(4)}\n` +
+      `Status: ${bag.status}\n` +
+      `Mean Temperature (C): ${Number(bag.temp_mean).toFixed(2)}\n` +
+      `Mean Humidity (%): ${Number(bag.hum_mean).toFixed(1)}\n` +
+      `Mean Vibration: ${Number(bag.accel_rms).toFixed(3)}\n` +
+      `Door Count: ${bag.door_count}\n` +
+      `Timestamp: ${new Date(bag.timestamp).toISOString()}`
+    );
   }, [bag]);
+  
+  
+  
+  
 
   return (
     <button
@@ -39,8 +43,8 @@ export default function BagCard({ bag, selected, onClick }) {
       </div>
 
       <div className="mini">
-        <span>🌡 {Number(bag.temp_mean).toFixed(2)}°C</span>
-        <span>💧 {Number(bag.hum_mean).toFixed(1)}%</span>
+        <span> {Number(bag.temp_mean).toFixed(2)}°C</span>
+        <span> {Number(bag.hum_mean).toFixed(1)}%</span>
       </div>
     </button>
   );

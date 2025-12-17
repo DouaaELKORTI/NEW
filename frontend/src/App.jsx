@@ -9,6 +9,7 @@ const API = "http://localhost:8000";
 export default function App() {
   const [snapshot, setSnapshot] = useState(null);
   const [selectedBag, setSelectedBag] = useState(null);
+  const [history, setHistory] = useState([]);
 
   // polling every 15s
   useEffect(() => {
@@ -38,15 +39,15 @@ export default function App() {
   }, [selectedBag]);
 
   const bags = snapshot?.bags ?? [];
-  const selectedRow = useMemo(
-    () => bags.find((b) => b.bag_id === selectedBag) || null,
-    [bags, selectedBag]
-  );
+  const selectedRow = bags.find(
+    (b) => b.bag_id === selectedBag
+  ) || null;
+  
 
-  // history for selected bag (from backend)
-  const [history, setHistory] = useState([]);
+  // history for selected bag
   useEffect(() => {
     let cancelled = false;
+
     const loadHist = async () => {
       if (!selectedBag) return;
       try {
@@ -57,6 +58,7 @@ export default function App() {
         console.error("history error", e);
       }
     };
+
     loadHist();
     const t = setInterval(loadHist, 15000);
     return () => {
@@ -67,10 +69,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <Navbar
-        serverTime={snapshot?.server_time}
-        bagsCount={bags.length}
-      />
+      <Navbar serverTime={snapshot?.server_time} bagsCount={bags.length} />
 
       <div className="layout">
         <div className="left">
@@ -86,6 +85,7 @@ export default function App() {
             row={selectedRow}
             history={history}
             sampleIntervalSeconds={snapshot?.interval_seconds ?? 15}
+            notes={snapshot?.notes}
           />
         </div>
       </div>

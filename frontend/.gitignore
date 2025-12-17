@@ -1,24 +1,15 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Python
+venv/
+__pycache__/
+*.pyc
 
-node_modules
-dist
-dist-ssr
-*.local
+# Runtime files
+backend/data/realtime_health_history.json
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Node
+node_modules/
+dist/
+
+# OS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db

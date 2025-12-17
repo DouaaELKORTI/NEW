@@ -84,6 +84,89 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 .chart-card{border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(17,24,36,.35)}
 .chart-title{font-weight:800;font-size:12px;color:var(--muted);margin-bottom:6px}
 .foot{margin-top:10px}
+.navbar.modern {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 18, 28, 0.95),
+    rgba(18, 26, 40, 0.95)
+  );
+  border-bottom: 1px solid rgba(0, 234, 255, 0.15);
+  backdrop-filter: blur(14px);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00eaff;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.8);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.titles .title {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+.card-reason {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.titles .subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+.tech-tag {
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.clock {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+}
 
 /* Reset and Base Styles */
 * {
